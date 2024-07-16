@@ -24,6 +24,11 @@
 
                 <form method="POST" action="{{ route('admin.projects.store') }}">
                     @csrf
+                    <select name="typeId" id="">
+                        @foreach ($type as $item)
+                            <option value=" {{old('type_id')}} "> {{$item->task}} </option>
+                        @endforeach
+                    </select>
                     <div class="mb-3">
                         <label class="form-label">title</label>
                         <input type="text" class="form-control" name="title" required value="{{ old('title') }}">

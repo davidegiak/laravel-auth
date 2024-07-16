@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -26,7 +27,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $data = [
+            'type' => Type::all(),
+        ];
+        return view('admin.projects.create', $data);
     }
 
     /**
@@ -39,7 +43,8 @@ class ProjectController extends Controller
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'type_id' => 'required'
         ]);
         $newProject = new Project();
         $newProject->fill($data);

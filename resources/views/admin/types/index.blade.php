@@ -1,11 +1,12 @@
-{{-- @extends('layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container-fluid d-flex flex-wrap">
         @foreach ($type as $item)
-            <div class="card" style="width: 18rem;">
+            <a class="card" style="width: 18rem;" href=" {{route('admin.types.show', $item->id)}} ">
+                <p> img {{$item->icon}} </p>
                 <h3> {{$item->task}} </h3>
-            </div>
+            </a>
         @endforeach
     </div>
 
@@ -20,6 +21,4 @@
             margin: 1.5rem
         }
     </style>
-@endsection --}}
-
-CIAO
+@endsection

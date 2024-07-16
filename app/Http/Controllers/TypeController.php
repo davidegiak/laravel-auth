@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Type;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 
@@ -25,13 +27,13 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTypeRequest $request)
+    public function store(Request $request)
     {
         $data = $request->validate([
             'task' => 'required',
@@ -49,7 +51,8 @@ class TypeController extends Controller
     public function show(Type $type)
     {
         $data = [
-            'type' => $type
+            'type' => $type,
+            'projects' => Project::all(),
         ];
         return view('admin.types.show', $data);
     }
@@ -59,15 +62,23 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        $data = [
+            'type' => $type
+        ];
+        return view('admin.types.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTypeRequest $request, Type $type)
+    public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->validate([
+            'task' => 'required',
+            'icon' => 'required',
+        ]);
+        $type->update($data);
+        return redirect()->route('admin.types.show', $type);
     }
 
     /**
@@ -75,6 +86,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index');
     }
 }

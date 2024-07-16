@@ -56,12 +56,12 @@
                                     <i class="fa-solid fa-plus"></i> Create
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.types.index') }}">
-                                    <i class="fa-solid fa-plus"></i> Types
+                                    <i class="fa-solid fa-list"></i> Types
                                 </a>
-                            </li> --}}
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}"

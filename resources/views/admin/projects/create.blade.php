@@ -24,9 +24,9 @@
 
                 <form method="POST" action="{{ route('admin.projects.store') }}">
                     @csrf
-                    <select name="typeId" id="">
+                    <select name="type_id" id="">
                         @foreach ($type as $item)
-                            <option value=" {{old('type_id')}} "> {{$item->task}} </option>
+                            <option value=" {{'type_id'}} "> {{$item->task}} </option>
                         @endforeach
                     </select>
                     <div class="mb-3">

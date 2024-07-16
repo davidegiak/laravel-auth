@@ -25,6 +25,11 @@
                 <form method="POST" action="{{ route('admin.projects.update', $project->id) }}">
                     @csrf
                     @method('PUT')
+                    <select name="type_id" id="">
+                        @foreach ($type as $item)
+                            <option value=" {{$item->id}} " @selected(old('type_id') ?? $item->id == 'type_id')> {{$item->task}} </option>
+                        @endforeach
+                    </select>
                     <div class="mb-3">
                         <label class="form-label">title</label>
                         <input type="text" class="form-control" name="title" required value="{{ old('title', $project->title) }}">

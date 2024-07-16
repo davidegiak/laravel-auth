@@ -26,7 +26,7 @@
                     @csrf
                     <select name="type_id" id="">
                         @foreach ($type as $item)
-                            <option value=" {{'type_id'}} "> {{$item->task}} </option>
+                            <option value=" {{$item->id}} " @selected(old('type_id') ?? $item->id == 'type_id')> {{$item->task}} </option>
                         @endforeach
                     </select>
                     <div class="mb-3">

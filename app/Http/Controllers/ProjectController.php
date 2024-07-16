@@ -84,7 +84,8 @@ class ProjectController extends Controller
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'type_id' => 'required'
         ]);
         $project->update($data);
         return redirect()->route('admin.projects.show', $project);

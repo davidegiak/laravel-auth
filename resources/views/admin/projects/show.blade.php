@@ -10,6 +10,7 @@
             <p class="card-text">{{ $project->start_date }}</p>
             <p class="card-text">{{ $project->end_date }}</p>
             <p class="card-text">{{ $project->status }}</p>
+            <p class="card-text">{{ $project->type->task }}</p>
             
             <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Back to List</a>
             

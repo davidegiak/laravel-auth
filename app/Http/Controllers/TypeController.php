@@ -13,7 +13,11 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $type = Type::all();
+        $data = [
+            'type' => $type,
+        ];
+        return view('admin.projects.index', $data);
     }
 
     /**
@@ -29,7 +33,14 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $data = $request->validate([
+            'task' => 'required',
+            'icon' => 'required',
+        ]);
+        $newType = new Type();
+        $newType->fill($data);
+        $newType->save();
+        return redirect()->route('admin.projects.index', $newType);
     }
 
     /**
@@ -37,7 +48,10 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        $data = [
+            'type' => $type
+        ];
+        return view('admin.projects.show', $data);
     }
 
     /**

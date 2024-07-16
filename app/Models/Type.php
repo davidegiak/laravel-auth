@@ -13,4 +13,8 @@ class Type extends Model
         'task',
         'icon',
     ];
+
+    public function projects() {
+        return $this->belongsTo(Project::class);
+    }
 }

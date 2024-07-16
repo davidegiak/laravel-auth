@@ -17,7 +17,7 @@ class TypeController extends Controller
         $data = [
             'type' => $type,
         ];
-        return view('admin.projects.index', $data);
+        return view('admin.types.index', $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class TypeController extends Controller
         $newType = new Type();
         $newType->fill($data);
         $newType->save();
-        return redirect()->route('admin.projects.index', $newType);
+        return redirect()->route('admin.types.index', $newType);
     }
 
     /**
@@ -51,7 +51,7 @@ class TypeController extends Controller
         $data = [
             'type' => $type
         ];
-        return view('admin.projects.show', $data);
+        return view('admin.types.show', $data);
     }
 
     /**

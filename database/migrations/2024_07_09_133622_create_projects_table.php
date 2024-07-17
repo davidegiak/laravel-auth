@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->date('date')->nullable();
             $table->string('status')->default('active');  // esempi di status: active, completed, paused
             $table->foreignId('type_id')->constrained();
+            $table->string('git_url');
+            $table->string('img_url');
             $table->timestamps();
         });
     }

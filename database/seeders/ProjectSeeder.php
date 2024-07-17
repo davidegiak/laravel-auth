@@ -16,10 +16,11 @@ class ProjectSeeder extends Seeder
             Project::create([
                 'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),  
                 'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),  
-                'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-                'end_date' => $faker->date($format = 'Y-m-d', $max = '2025'),
+                'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'status' => $faker->randomElement(['active', 'completed', 'pending']),
                 'type_id' => $faker->numberBetween(1, 4),
+                'git_url' => 'URL',
+                'img_url' => 'URL'
             ]);
         }
     }

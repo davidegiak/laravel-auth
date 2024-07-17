@@ -41,10 +41,10 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'date' => 'required',
             'status' => 'required',
-            'type_id' => 'required'
+            'type_id' => 'required',
+            'img_url' => 'required'
         ]);
         $newProject = new Project();
         $newProject->fill($data);
@@ -83,10 +83,10 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'date' => 'required',
             'status' => 'required',
-            'type_id' => 'required'
+            'type_id' => 'required',
+            'img_url' => 'required'
         ]);
         $project->update($data);
         return redirect()->route('admin.projects.show', $project);

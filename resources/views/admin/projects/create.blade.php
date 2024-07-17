@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-12">
 
-                <form method="POST" action="{{ route('admin.projects.store') }}">
+                <form method="POST" action="{{ route('admin.projects.store') }} " enctype="multipart/form-data">
                     @csrf
                     <select name="type_id" id="">
                         @foreach ($type as $item)
@@ -44,18 +44,19 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">start_date</label>
-                        <input type="text" class="form-control" name="start_date" required
-                            value="{{ old('start_date') }}">
-                        @error('start_date')
+                        <label class="form-label">date</label>
+                        <input type="text" class="form-control" name="date" required
+                            value="{{ old('date') }}">
+                        @error('date')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">end_date</label>
-                        <input type="text" class="form-control" name="end_date" required value="{{ old('end_date') }}">
-                        @error('end_date')
-                            <div>{{ $message }}</div>
+                        <label for="img_url" class="form-label">Choose file</label>
+                        <input type="file" class="form-control" name="img_url" id="img_url" placeholder="" aria-describedby="img_url-helper" />
+                        <div id="img_url-helper" class="form-text">Upload an image for the curret project</div>
+                        @error('img_url')
+                        <div class="form-text text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">

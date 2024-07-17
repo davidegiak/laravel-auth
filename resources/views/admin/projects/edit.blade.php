@@ -46,16 +46,9 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">start_date</label>
-                        <input type="text" class="form-control" name="start_date" required
-                            value="{{ old('start_date', $project->start_date) }}">
-                        @error('start_date')
-                            <div>{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">end_date</label>
-                        <input type="text" class="form-control" name="end_date" required value="{{ old('end_date', $project->end_date) }}">
-                        @error('end_date')
+                        <input type="text" class="form-control" name="date" required
+                            value="{{ old('date', $project->start_date) }}">
+                        @error('date')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>

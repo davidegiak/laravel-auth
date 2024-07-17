@@ -3,12 +3,11 @@
 @section('content')
 <div class="container">
     <div class="card" style="width: 18rem;">
-        {{-- <img src="..." class="card-img-top" alt="..."> --}}
+        <img src=" {{$project->img_url}} " class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ $project->title }}</h5>
             <p class="card-text">{{ $project->description }}</p>
-            <p class="card-text">{{ $project->start_date }}</p>
-            <p class="card-text">{{ $project->end_date }}</p>
+            <p class="card-text">{{ $project->date }}</p>
             <p class="card-text">{{ $project->status }}</p>
             <p class="card-text">{{ $project->type->task }}</p>
             

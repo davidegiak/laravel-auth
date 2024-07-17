@@ -19,7 +19,7 @@ class ProjectSeeder extends Seeder
                 'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'status' => $faker->randomElement(['active', 'completed', 'pending']),
                 'type_id' => $faker->numberBetween(1, 4),
-                'git_url' => 'URL',
+                // 'git_url' => 'URL',
                 'img_url' => 'URL'
             ]);
         }

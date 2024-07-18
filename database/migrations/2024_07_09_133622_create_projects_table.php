@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->string('status')->default('active');  // esempi di status: active, completed, paused
             $table->foreignId('type_id')->constrained();
-            // $table->string('git_url');
-            $table->string('img_url');
+            $table->string('git_url')->nullable();
+            $table->string('img_url')->nullable();
             $table->timestamps();
         });
     }

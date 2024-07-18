@@ -15,7 +15,7 @@
                     <p class="card-text"> {{ $item['description'] }} </p>
                     <p class="card-text"> {{ $item['date'] }} </p>
                     <p class="card-text"> {{ $item['status'] }} </p>
-                    {{-- <p class="card-text"> {{ $item['img_url'] }} </p> --}}
+                    <p class="card-text"> {{ $item['img_url'] }} </p>
                     <a href="{{route('admin.projects.show', $item->id)}}" class="btn btn-primary">MORE</a>
                 </div>
             </div>

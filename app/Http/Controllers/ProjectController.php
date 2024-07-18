@@ -7,7 +7,8 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-use Storage;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -42,12 +43,21 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'date' => 'required',
-            'status' => 'required',
-            'type_id' => 'required',
-            'img_url' => 'required'
+            'date' => 'nullable',
+            'status' => 'nullable',
+            'type_id' => 'nullable',
+            'img_url' => 'nullable',
+            'git_url' => 'nullable'
         ]);
         $newProject = new Project();
+
+        if ($request->has('img_url')) {
+            // save the image
+
+            $image_path = Storage::put('uploads', $request->img_url);
+            $data['img_url'] = $image_path;
+            //dd($image_path, $val_data);
+        }
         $newProject->fill($data);
         $newProject->save();
         return redirect()->route('admin.projects.index', $newProject);
@@ -84,12 +94,23 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'date' => 'required',
-            'status' => 'required',
-            'type_id' => 'required',
-            'img_url' => 'required'
+            'date' => 'nullable',
+            'status' => 'nullable',
+            'type_id' => 'nullable',
+            'img_url' => 'nullable',
+            'git_url' => 'nullable',
         ]);
+        if ($request->has('img_url')) {
+            // save the image
 
+            $image_path = Storage::put('uploads', $request->img_url);
+            $data['img_url'] = $image_path;
+            //dd($image_path, $val_data);
+        }
+        if ($project->img_url && !Str::startsWith($project->img_url, 'http')) {
+            # code...
+            Storage::delete($project->img_url);
+        }
         $project->update($data);
         return redirect()->route('admin.projects.show', $project);
         }

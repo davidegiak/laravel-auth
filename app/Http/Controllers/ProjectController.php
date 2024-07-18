@@ -7,6 +7,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Storage;
 
 class ProjectController extends Controller
 {
@@ -88,9 +89,10 @@ class ProjectController extends Controller
             'type_id' => 'required',
             'img_url' => 'required'
         ]);
+
         $project->update($data);
         return redirect()->route('admin.projects.show', $project);
-    }
+        }
 
     /**
      * Remove the specified resource from storage.

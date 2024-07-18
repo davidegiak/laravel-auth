@@ -45,11 +45,19 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">start_date</label>
+                        <label class="form-label">date</label>
                         <input type="text" class="form-control" name="date" required
-                            value="{{ old('date', $project->start_date) }}">
+                            value="{{ old('date', $project->date) }}">
                         @error('date')
                             <div>{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="img_url" class="form-label">Choose file</label>
+                        <input type="file" class="form-control" name="img_url" id="img_url" placeholder="" aria-describedby="img_url-helper" value=" {{old('img_url', $project->img_url)}} " />
+                        <div id="img_url-helper" class="form-text">Upload an image for the curret project</div>
+                        @error('img_url')
+                        <div class="form-text text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">

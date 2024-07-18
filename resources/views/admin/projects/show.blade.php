@@ -3,7 +3,12 @@
 @section('content')
 <div class="container">
     <div class="card" style="width: 18rem;">
-        <img src=" {{$project->img_url}} " class="card-img-top" alt="...">
+        {{-- <img src=" {{$project->img_url}} " class="card-img-top" alt=""> --}}
+        @if (Str::startsWith($project->img_url, 'http'))
+                <img width="140" src="{{ $project->img_url }}" class="card-img-top">
+                @else
+                <img width="140" src="{{ asset('storage/' . $project->img_url) }}" class="card-img-top">
+                @endif
         <div class="card-body">
             <h5 class="card-title">{{ $project->title }}</h5>
             <p class="card-text">{{ $project->description }}</p>

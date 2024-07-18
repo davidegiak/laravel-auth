@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
                 'status' => $faker->randomElement(['active', 'completed', 'pending']),
                 'type_id' => $faker->numberBetween(1, 4),
                 // 'git_url' => 'URL',
-                'img_url' => 'URL'
+                'img_url' => $faker->imageUrl(600, 400, 'projects', true, gray: true, format: 'jpg'),
             ]);
         }
     }

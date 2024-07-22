@@ -11,11 +11,11 @@
                 <img width="140" src="{{ asset('/storage/' . $item->img_url) }}" class="card-img-top">
                 @endif
                 <div class="card-body">
-                    <h5 class="card-title"> {{ $item['title'] }} </h5>
-                    <p class="card-text"> {{ $item['description'] }} </p>
-                    <p class="card-text"> {{ $item['date'] }} </p>
-                    <p class="card-text"> {{ $item['status'] }} </p>
-                    <p class="card-text"> {{ $item['img_url'] }} </p>
+                    <h5 class="card-title">Title: {{ $item['title'] }} </h5>
+                    <p class="card-text">Description: {{ $item['description'] }} </p>
+                    <p class="card-text">Date: {{ $item['date'] }} </p>
+                    <p class="card-text">Status: {{ $item['status'] }} </p>
+                    <a class="d-block" href="{{$item->git_url}}"> {{$item->git_url}} </a>
                     <a href="{{route('admin.projects.show', $item->id)}}" class="btn btn-primary">MORE</a>
                 </div>
             </div>
